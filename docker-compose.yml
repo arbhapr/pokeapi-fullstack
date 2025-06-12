@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "${BACKEND_PORT}:3000"
+    environment:
+      - PORT=${BACKEND_PORT}
+      - BASE_URL=${BACKEND_BASE_URL}
+      - LIMIT_PER_PAGE=${BACKEND_LIMIT_PER_PAGE}
+      - API_VERSION=${BACKEND_API_VERSION}
+      - ENVIRONMENT=${BACKEND_ENVIRONMENT}
+      - SOURCE_URL=${BACKEND_SOURCE_URL}
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL} # Pass VITE_API_URL as build argument
+    container_name: frontend
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
