@@ -1,7 +1,6 @@
 # My Pokemon Project
 
-This repository contains a full-stack web application that allows users to catch and manage Pokémon.
-The project is structured with two submodules: a Go backend and a ReactJS + Vite frontend.
+This repository contains a full-stack web application that allows users to catch and manage Pokémon. It features a **Go backend** and a **ReactJS + Vite frontend**, integrated into a single monorepo.
 
 ## Table of Contents
 
@@ -26,17 +25,11 @@ Before setting up the project, ensure you have the following installed:
 1. **Clone the repository with submodules**:
 
    ```bash
-   git clone --recurse-submodules <repository-url>
+   git clone <repository-url>
    cd my-pokemon
    ```
 
-2. **Initialize and update submodules (if not done automatically)**:
-    ```bash
-    git submodule init
-    git submodule update --recursive
-    ```
-
-3. **Backend Setup**:
+2. **Backend Setup**:
 
    Navigate to the backend folder:
 
